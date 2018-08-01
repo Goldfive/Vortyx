@@ -5,6 +5,7 @@ Encore
     .setOutputPath('public/build/')
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
+    .addEntry('app', './assets/js/app.js')
     // the public path you will use in Symfony's asset() function - e.g. asset('build/some_file.js')
     .setManifestKeyPrefix('build/')
 
@@ -20,12 +21,14 @@ Encore
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
-
+    .cleanupOutputBeforeBuild()
+    .enableBuildNotifications()
     // uncomment if you use Sass/SCSS files
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment for legacy applications that require $/jQuery as a global variable
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();
+

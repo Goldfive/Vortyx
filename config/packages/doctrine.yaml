@@ -3,19 +3,26 @@ parameters:
     # This allows you to run cache:warmup even if your
     # environment variables are not available yet.
     # You should not need to change this value.
-    env(DATABASE_URL): ''
+    env(DATABASE_URL): 'mysql://vortyx_backend:testww@localhost:3306/vortyx'
+    database_user: vortyx_backend
+    database_password: testww
 
 doctrine:
     dbal:
         # configure these for your database server
         driver: 'pdo_mysql'
-        server_version: '5.7'
-        charset: utf8mb4
+        server_version: '5.5'
+        charset: utf8
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
-
         url: '%env(resolve:DATABASE_URL)%'
+        dbname: 'vortyx'
+        host: 'localhost'
+        user: 'vortyx_backend'
+        password: 'testww'
+        port: '3306'
+        unix_socket: '/var/run/mysqld/mysqld.sock'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
