@@ -21,7 +21,9 @@
     "build": "encore production"
   },
   "dependencies": {
-    "babel-loader": "^7.1.5"
+    "alert-js": "^1.0.1",
+    "babel-loader": "^7.1.5",
+    "encore": "^0.0.30-beta"
   },
   "name": "vortyx",
   "description": "",

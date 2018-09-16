@@ -29,7 +29,7 @@ class Category
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Category", cascade={"persist", "remove"})
      */
-    private $headCategory_id;
+    private $headCategory;
 
     public function getId()
     {
@@ -60,14 +60,14 @@ class Category
         return $this;
     }
 
-    public function getHeadCategoryId(): ?self
+    public function getHeadCategory(): ?self
     {
-        return $this->headCategory_id;
+        return $this->headCategory;
     }
 
-    public function setHeadCategoryId(?self $headCategory_id): self
+    public function setHeadCategory(?self $headCategory): self
     {
-        $this->headCategory_id = $headCategory_id;
+        $this->headCategory = $headCategory;
 
         return $this;
     }

@@ -35,6 +35,9 @@
                     </div>
                 </li>-->
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ path('blog') }}">Blog</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Infotheek</a>
                 </li>
                  <li class="nav-item">
@@ -57,7 +60,29 @@
         
 
         <div id="content">
-            {% block body %}{% endblock %}
+            <div class="container">
+           
+                {% if app.session.flashBag.has('error') %}
+                 <div class="alert alert-warning" data-dismiss="alert" role="alert">
+                    {% for message in app.session.flashBag.get('error') %}
+                        {{ message.messageKey|trans(message.messageData, 'messages') }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% block body %}
+                    <!-- Homepage to do, for now using blog as home -->
+                {% endblock %}
+            </div>
         </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        {% block footer %}
+            <p class="m-0 text-center text-white">Copyright &copy; Vortyx</p>
+        {% endblock %}
+      </div>
+      <!-- /.container -->
+    </footer>
     </body>
 </html>

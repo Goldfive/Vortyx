@@ -8,6 +8,13 @@ $colDefault     : #ecf0f1;
 $colHighlight   : #ffe6d1;
 $dropDown       : false;
 
+//Basic rules
+
+.container {
+  width: 75%;
+}
+
+//Navbar
 .navbar {
   background-color: $bgDefault;
   .navbar-brand {
